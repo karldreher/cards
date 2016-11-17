@@ -33,11 +33,17 @@ def deal(player):
     player.hand.append(card)
 
 def score(hand):
+    total = 0
     for card in hand:
-        
         if int(card.value):
             points = int(card.value)
-    return points
+        elif card.value in ["J","Q","K"]:
+            points = 10
+        elif card.value == "A":
+            #obviously sorta broken.  OK for now.
+            points = 11
+        total += points
+    return total
 
 if __name__ == "__main__":
     dealer=Player()
