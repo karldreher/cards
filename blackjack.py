@@ -9,6 +9,7 @@ shuffled_deck = []
 class Player:
     def __init__(self):
         self.hand = []
+    
 
 
 class Card:
@@ -22,14 +23,12 @@ def shuffle():
         for value in values:
             card=Card(suit,value)
             deck.append(card)
-    for i in (range(0,(len(deck)))):
-        random_card = random.choice(deck)
-        deck.remove(random_card)
-        shuffled_deck.append(random_card)
-        
+    random.shuffle(deck)
+
+
 
 def deal(player):
-    card = shuffled_deck.pop()
+    card = deck.pop()
     player.hand.append(card)
 
 def score(hand):
@@ -47,3 +46,7 @@ def score(hand):
 
 if __name__ == "__main__":
     dealer=Player()
+    shuffle()
+
+
+        
